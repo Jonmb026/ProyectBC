@@ -1,0 +1,58 @@
+﻿@model Models.ACME.EmpresaEntidad
+
+@{
+    ViewData["Title"] = "Modificar Empresa";
+}
+
+<h2>Modificar Empresa</h2>
+
+<form asp-controller="Empresa" asp-action="Modificar" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <input type="hidden" asp-for="IDEmpresa" />
+
+    <div class="form-group">
+        <label asp-for="IDTipoEmpresa" class="control-label"></label>
+        <input asp-for="IDTipoEmpresa" class="form-control" />
+        <span asp-validation-for="IDTipoEmpresa" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Empresa" class="control-label"></label>
+        <input asp-for="Empresa" class="form-control" />
+        <span asp-validation-for="Empresa" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Direccion" class="control-label"></label>
+        <input asp-for="Direccion" class="form-control" />
+        <span asp-validation-for="Direccion" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="RUC" class="control-label"></label>
+        <input asp-for="RUC" class="form-control" />
+        <span asp-validation-for="RUC" class="text-danger"></span>
+    </div>
+
+    <!-- Campo de FechaCreacion automático -->
+    <input type="hidden" asp-for="FechaCreacion" value="@DateTime.Now" />
+
+    <div class="form-group">
+        <label asp-for="Presupuesto" class="control-label"></label>
+        <input asp-for="Presupuesto" class="form-control" />
+        <span asp-validation-for="Presupuesto" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <div class="checkbox">
+            <label>
+                <input asp-for="Activo" /> @Html.DisplayNameFor(model => model.Activo)
+            </label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Guardar" class="btn btn-primary" />
+    </div>
+</form>
